@@ -9,26 +9,30 @@ import 'player.dart';
 
 void main(List<String> arguments) {
 
-    Room forest = Room(0, 'forest', 'You wake up in a dark forest', 1, null, null, null, null);
+    Room emptyRoom = Room(0, 'Empty room', 'You wake up in a dark empty room', 1, null, null, null, null);
     Room house = Room(1, 'house', 'You enter a house', 4, 0, 2, 3, 'armor');
     Room pond = Room(2, 'pond', 'You enter a pond', null, null, null, 1, 'sword');
     Room garden = Room(3, 'garden', 'You enter a garden', null, null, 1, null, 'banana');
     Room bridge = Room(4, 'bridge', 'You enter a bridge', null, 1, null, null, 'key');
 
     List<Room> listOfRooms = [];
-    listOfRooms.add(forest);
+    listOfRooms.add(emptyRoom);
     listOfRooms.add(house);
     listOfRooms.add(pond);
     listOfRooms.add(garden);
     listOfRooms.add(bridge);
 
-    Player.location = forest;
+    Player.location = emptyRoom;
     Player.gameRunning = true;
+    Player.firstTimeRunning = true;
 
 
   while(Player.gameRunning) {
-      print(Player.location.initialDescription);
-      print('What do you want to do?');
+
+      if(Player.firstTimeRunning) {
+          print(Player.location.initialDescription);
+          print('What do you want to do?');
+      }
       String input = stdin.readLineSync();
 
       if (input.toLowerCase() == 'n') {
