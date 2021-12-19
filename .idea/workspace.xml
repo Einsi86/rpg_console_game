@@ -2,8 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1e1a2fd0-0c29-4adc-b4cc-177f03846fd6" name="Changes" comment="First commit lokaverkefni">
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.packages" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bin/descriptions.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bin/room_descriptions.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/ascii.dart" beforeDir="false" afterPath="$PROJECT_DIR$/bin/ascii.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/enemies.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/main_game.dart" beforeDir="false" afterPath="$PROJECT_DIR$/bin/main_game.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/main_game.exe" beforeDir="false" afterPath="$PROJECT_DIR$/bin/main_game.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/map.dart" beforeDir="false" afterPath="$PROJECT_DIR$/bin/map.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/player.dart" beforeDir="false" afterPath="$PROJECT_DIR$/bin/player.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,6 +60,16 @@
       <option name="workingDirectory" value="$PROJECT_DIR$" />
       <method v="2" />
     </configuration>
+    <configuration name="map.dart" type="DartCommandLineRunConfigurationType" factoryName="Dart Command Line Application" temporary="true" nameIsGenerated="true">
+      <option name="filePath" value="$PROJECT_DIR$/bin/map.dart" />
+      <option name="workingDirectory" value="$PROJECT_DIR$" />
+      <method v="2" />
+    </configuration>
+    <configuration name="player.dart" type="DartCommandLineRunConfigurationType" factoryName="Dart Command Line Application" temporary="true" nameIsGenerated="true">
+      <option name="filePath" value="$PROJECT_DIR$/bin/player.dart" />
+      <option name="workingDirectory" value="$PROJECT_DIR$" />
+      <method v="2" />
+    </configuration>
     <configuration name="untitled.dart" type="DartCommandLineRunConfigurationType" factoryName="Dart Command Line Application">
       <option name="filePath" value="$PROJECT_DIR$/bin/untitled.dart" />
       <option name="workingDirectory" value="$PROJECT_DIR$" />
@@ -61,6 +78,8 @@
     <recent_temporary>
       <list>
         <item itemvalue="Dart Command Line App.main_game.dart" />
+        <item itemvalue="Dart Command Line App.player.dart" />
+        <item itemvalue="Dart Command Line App.map.dart" />
         <item itemvalue="Dart Command Line App.enums_classes.dart" />
       </list>
     </recent_temporary>
@@ -101,9 +120,26 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="First commit lokaverkefni" />
     <option name="LAST_COMMIT_MESSAGE" value="First commit lokaverkefni" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="Dart">
+          <url>file://$PROJECT_DIR$/bin/map.dart</url>
+          <line>205</line>
+          <option name="timeStamp" value="43" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="Dart">
+          <url>file://$PROJECT_DIR$/bin/map.dart</url>
+          <line>206</line>
+          <option name="timeStamp" value="44" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
