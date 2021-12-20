@@ -119,7 +119,8 @@ class GameEngine {
         'strangeRoom',
         'You enter a strange room',
         'You are in the strange room',
-        'empty \n There is a door to the south and what looks like a dark tunnel to the north',
+        'This room is quite odd. no furniture, no pictures, just empty walls and'
+            ' what seems to be a very dark tunnel \n There is a door to the south and what looks like a dark tunnel to the north',
         null,
         1,
         null,
