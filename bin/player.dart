@@ -3,6 +3,7 @@
 
 import 'map.dart';
 
+//Classinn fyrir player
 class Player  {
 
   Room location;

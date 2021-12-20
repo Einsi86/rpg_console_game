@@ -5,6 +5,13 @@ import 'player.dart';
 import 'descriptions.dart';
 import 'ascii.dart';
 
+/*
+Classi fyrir öll herbergin.
+Mismunandi lýsingar á herbergi eftir því hvort maður sé þar í fyrsta skipti,
+hefur verið þar áður eða notar look around skipunina.
+4 áttir notaðar til að setja upp hvaða herbergi liggja við hvort annað.
+bool rofi til að merkja herbergið eftir hvort maður hafi verið áður eða ekki.
+*/
 
 class Room  {
 
@@ -19,14 +26,15 @@ class Room  {
   int west;
   String item;
   bool roomEnteredBefore = false;
-  bool firstTimeinRoom;
+  bool firstTimeInRoom;
   String itemToAccess;
 
   Room(this.id, this.name, this.initialDescription, this.beenBeforeDescription,
       this.lookAroundDescription, this.north, this.south, this.east, this.west,
-      this.item, this.roomEnteredBefore, this.firstTimeinRoom, this.itemToAccess);
+      this.item, this.roomEnteredBefore, this.firstTimeInRoom, this.itemToAccess);
 
 
+//Function til að accessa læsta herbergið ef maður er með lykilinn.
 
   bool playerCanAccess (Player player, Room nextRoom) {
     if(player.inventory.contains(nextRoom.itemToAccess)) {
@@ -46,6 +54,9 @@ class GameEngine {
   Player player = Player();
 
   GameEngine(){
+
+    //Öll herbergin definuð
+
     Room emptyRoom = Room(
         0,
         'emptyRoom',
@@ -132,6 +143,10 @@ class GameEngine {
         true,
         null);
 
+    /*Herbergjunum addað í lista sem er svo notaður þegar er navigateað. S.s leitað
+      af room id í listOfRooms til þess að sjá hvort það sé herbergi í áttina sem er
+      reynt að fara í.*/
+
     listOfRooms.add(emptyRoom);
     listOfRooms.add(hallway);
     listOfRooms.add(kitchen);
@@ -139,11 +154,15 @@ class GameEngine {
     listOfRooms.add(strangeRoom);
     listOfRooms.add(pantry);
 
+    //Byrjunarstaðsetning á player
+
     player.location = emptyRoom;
     player.gameRunning = true;
 
   }
 
+  /*Sennilega óþarfi, en bara til þess að aðeins fleirri orð virki fyrir skipanir.
+    annars er alltaf hægt að opna help og sjá hvaða skipanir eru í boði*/
   String inputTranslator (String input) {
 
     input = input.replaceAll('get', 'pick up');
@@ -165,6 +184,8 @@ class GameEngine {
     input = input.replaceAll('help', 'h');
     return input;
   }
+
+  //sýnir ASCII með nafninu á leiknum og start, help, quit möguleika.
 
   void splash() {
 
@@ -191,12 +212,16 @@ class GameEngine {
 
     while (player.gameRunning) {
 
+      /*Check fyrir hvort player sé í fyrsta skipti í herbergi eða ekki.
+      prentar bara room descriptionið ef áttirnar eru notaðar(en ekki ef t.d
+      map eða inventory er opnað)*/
+
       if(input == 'n' || input == 's' || input == 'w' || input == 'e') {
-        if (player.location.firstTimeinRoom) {
+        if (player.location.firstTimeInRoom) {
           print(player.location.initialDescription);
-          player.location.firstTimeinRoom = false;
+          player.location.firstTimeInRoom = false;
         } else if (player.location.roomEnteredBefore &&
-            !player.location.firstTimeinRoom) {
+            !player.location.firstTimeInRoom) {
           print(player.location.beenBeforeDescription);
         } else {
           print(player.location.beenBeforeDescription);
@@ -207,6 +232,8 @@ class GameEngine {
       input = inputTranslator(input);
 
 
+      //opnar map ef búið er að ná í það
+
     if(input == 'map') {
       if(player.inventory.contains('map')) {
         map();
@@ -214,6 +241,8 @@ class GameEngine {
         print('You do not have a map');
       }
     }
+
+    //Bara yrir loka exit. Þarf flashlight til þess að geta komist út.
 
     if(input == 'n' && player.location.id == 4) {
       if(player.inventory.contains('flashlight')) {
@@ -226,6 +255,9 @@ class GameEngine {
         print('The tunnel is too dark to navigate. Maybe you can find something to light the way');
       }
     }
+
+    //Quit með yes, no og maybe með random breytu svona bara afþví bara :P
+
     if(input == 'q') {
       print('Are you sure you want to quit?');
       print('y = yes, n = no, m = maybe');
@@ -244,9 +276,13 @@ class GameEngine {
       }
     }
 
+    //Help textinn
+
     if(input == 'h') {
       help();
     }
+
+    //Hardcoded til að brjóta vasann sem droppar vasaljósinu.
 
       if(input == 'break vase') {
         if(player.location.item == 'vase') {
@@ -256,6 +292,8 @@ class GameEngine {
           print('There is no vase');
         }
       }
+
+    //Hardcoded til að opna boxið með combination úr bók í öðru herbergi. droppar lykli.
 
     if(input == 'open small box') {
       if(player.inventory.contains('small box')) {
@@ -275,6 +313,8 @@ class GameEngine {
       }
     }
 
+    //Hardcoded til að lesa bókina
+
     if (input == 'read book') {
       if(player.inventory.contains('book')) {
         print('The book only contains 3 sentences \n');
@@ -285,12 +325,21 @@ class GameEngine {
         print('You do not have a book');
     }
     }
+
+    /*look around sem prentar bæði viðeigandi lýsingu fyrir það herbergi sem maður
+      er í og og hvaða hlutur er í herberginu*/
+
     if (input == 'look around') {
       print(player.location.lookAroundDescription);
       if(player.location.item != null) {
         print('You see a ${player.location.item}');
       }
     }
+
+    /* north, south, east, west sem leitar í listOfRooms af Room.id í Room classanum
+      hvort það sé herbergi í áttina sem er reynt að fara í.
+      Setti bara í 'north' checkið fyrir læstu hurðina því það á bara við einusinni
+      og í þá átt, en mætti allveg vera inn í hinum áttunum líka*/
 
     if (input == 'n') {
       if (player.location.north != null) {
@@ -340,6 +389,8 @@ class GameEngine {
       }
     }
 
+    //Pick up skipun sem bætir hlut í inventory og removar úr herberginu.
+
     if (input == 'pick up ${player.location.item}') {
       String itemName = player.location.item;
       if (player.location.item == itemName) {
@@ -351,8 +402,10 @@ class GameEngine {
         print('There is no ${input.replaceAll('pick up', '')}');
     }
 
+    //Opnar inventory, nema það sé tómt.
+
     if (input == 'i') {
-      if (!player.inventory.isEmpty) {
+      if (!player.inventory.isNotEmpty) {
         print(player.inventory);
       } else {
         print('Your inventory is empty');

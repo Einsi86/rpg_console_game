@@ -1,4 +1,4 @@
-
+//Help og GameStartText geymdir hér til þess að sækja
 
 void help () {
   print('''
