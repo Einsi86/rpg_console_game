@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1e1a2fd0-0c29-4adc-b4cc-177f03846fd6" name="Changes" comment="loka commit lokaverkefni">
+    <list default="true" id="1e1a2fd0-0c29-4adc-b4cc-177f03846fd6" name="Changes" comment="loka-loka commit lokaverkefni - Texti settur  í readme og comment á kóðann.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/ascii.dart" beforeDir="false" afterPath="$PROJECT_DIR$/bin/ascii.dart" afterDir="false" />
@@ -116,7 +116,14 @@
       <option name="project" value="LOCAL" />
       <updated>1639952705172</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="loka-loka commit lokaverkefni - Texti settur  í readme og comment á kóðann.">
+      <created>1640010823123</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1640010823123</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -134,6 +141,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="First commit lokaverkefni" />
     <MESSAGE value="loka commit lokaverkefni" />
-    <option name="LAST_COMMIT_MESSAGE" value="loka commit lokaverkefni" />
+    <MESSAGE value="loka-loka commit lokaverkefni - Texti settur  í readme og comment á kóðann." />
+    <option name="LAST_COMMIT_MESSAGE" value="loka-loka commit lokaverkefni - Texti settur  í readme og comment á kóðann." />
   </component>
 </project>
